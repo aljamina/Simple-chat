@@ -1,0 +1,9 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-------navbar------>
+<div class="topnav" id="myTopnav">
+  <a class="home">Welcome to simple chat</a>
+  <a class="logout" *ngIf="isChat==true" (click)="logout()"><i class="fa fa-sign-out"></i>Logout</a>
+</div>
+
+<router-outlet></router-outlet>

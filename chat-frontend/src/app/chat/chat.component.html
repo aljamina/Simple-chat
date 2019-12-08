@@ -1,0 +1,76 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<body>
+  <div class="messaging">
+    <div class="inbox_msg">
+      <div class="inbox_people">
+
+        <!-------new contact------>
+        <div class="headind_srch">
+          <div class="recent_heading">
+            <h4>Contacts</h4>
+          </div>
+          <div class="srch_bar">
+            <div class="stylish-input-group">
+              <input type="text" [(ngModel)]="username" class="search-bar" placeholder="New contact">
+              <span class="input-group-addon">
+                <button type="button" (click)="addNewContact()"> <i class="fa fa-plus" aria-hidden="true"></i> </button>
+                <div *ngIf="errorMessage!=''" class="alert" role="alert">
+                  {{errorMessage}}
+                </div>
+              </span> </div>
+          </div>
+        </div>
+
+        <!-------contacts------>
+        <div class="inbox_chat scroll">
+          <div class="chat_list active_chat" *ngFor="let i of contactList;">
+            <div class="chat_people" (click)="openChat(i.contactId)">
+              <div class="chat_img"> <img src="http://pluspng.com/img-png/user-png-icon-male-user-icon-512.png" alt="sunil"> </div>
+              <div class="chat_ib">
+                <h5>{{i.contactUserName}}</h5>
+                <p>Click on user to start conversation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-------messages------>
+      <div *ngIf="empty">
+        <p class="empty_conversation_p">Tap contact to start conversation</p>
+      </div>
+      <div class="mesgs" *ngIf="!empty">
+        <div *ngIf="empty">
+          <h4>Tap contact to start conversation</h4>
+        </div>
+        <div class="msg_history">
+          <div *ngFor="let i of receivedMessages">
+            <div *ngIf="i.SenderID!=currentuserID" class="incoming_msg">
+              <div class="incoming_msg_img"> <img src="http://pluspng.com/img-png/user-png-icon-male-user-icon-512.png" alt="sunil"> </div>
+              <div class="received_msg">
+                <div class="received_withd_msg">
+                  <p>{{i.Content}}</p>
+                  <span class="time_date">{{i.SentTime}}</span>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="i.SenderID==currentuserID" class="outgoing_msg">
+              <div class="sent_msg">
+                <p>{{i.Content}}</p>
+                <span class="time_date">{{i.SentTime}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="type_msg">
+          <div class="input_msg_write">
+            <input id="content" type="text" class="write_msg" placeholder="Type a message" />
+            <button class="msg_send_btn" (click)="new_message()" type="button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>

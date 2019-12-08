@@ -1,0 +1,58 @@
+.topnav {
+  background-color: #ffffff;
+  overflow: hidden;
+  position: relative;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.logout {
+  display: block;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  float: right;
+}
+
+.home {
+  display: block;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  float: left;
+}
+
+@media only screen and (min-width: 1600px) {
+  .topnav {
+    padding-left: 22%;
+    padding-right: 22%;
+  }
+  .logout {
+    font-size: 20px;
+  }
+  .home {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .topnav {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .logout {
+    font-size: 14px;
+  }
+  .home {
+    font-size: 14px;
+  }
+}
